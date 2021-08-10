@@ -15,7 +15,7 @@ trait EncodeRequest {
       case Root => "/"
       case _    => req.url.relative.asString
     }
-    val content     = req.getBodyAsString() match {
+    val content     = req.getBodyAsString match {
       case Some(text) => JUnpooled.copiedBuffer(text, HTTP_CHARSET)
       case None       => JUnpooled.EMPTY_BUFFER
     }
